@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'image.css' %}">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="{% static 'navbar.css' %}">
+  <style>
+    .button {
+      background-color: #0d1f49;
+      border: none;
+     color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+  </style>
+  <title>Генерация картинки</title>
+</head>
+
+<body>
+
+  <body>
+    <div class="navbar">
+      
+      <div class="drop">
+        <button class="nav-btn">&#9776;</button>
+        <div class="nav-list">
+          <a href="https://replicate.com/stability-ai/sdxl">используемый ИИ</a>
+          <a href="https://t.me/Xeniyakot">контакты</a>
+          <a href="index.html">Инфо о проекте</a>
+          <a href="https://replicate.com/stability-ai/sdxl/api?tab=nodejs">Replicate API</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="left-bar">
+        <p>Welcome to Replicate!
+          Follow these steps to make the most out of your experience.
+          Give us a shout on Discord or X if you get stuck along the way!</p>
+      </div>
+      <div class="container">
+        {% for img in images %}
+        <div class="card {% if forloop.counter|divisibleby:3 %}last-in-row{% endif %}">
+          <img width="400px" src="{{ img.image.url }}" alt="Generated Image">
+          <div class="info">
+            <a href="{{ img.image.url }}" download>
+              <button class="button">Скачать картинку</button>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="right-bar">
+        <p>Welcome to Replicate!
+          Follow these steps to make the most out of your experience.
+          Give us a shout on Discord or X if you get stuck along the way!</p>
+      </div>
+    </div>
+    </div>
+  </body>
+</body>
+
+</html>

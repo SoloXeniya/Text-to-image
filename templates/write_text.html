@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'write.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar1.css' %}">
+    <title>Текст</title>
+</head>
+
+<body>
+    <div class="navbar">
+        
+        <div class="drop">
+            <button class="nav-btn">&#9776;</button>
+            <div class="nav-list">
+                <a href="https://replicate.com/stability-ai/sdxl">используемый ИИ</a>
+                <a href="https://t.me/Xeniyakot">контакты</a>
+                <a href="index.html">Инфо о проекте</a>
+                <a href="https://replicate.com/stability-ai/sdxl/api?tab=nodejs">Replicate API</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="main">
+        <h1>Введите текст для генерации картинки</h1>
+        <br>
+        <form method="post" action="{% url 'write_text' %}">
+            {% csrf_token %}
+            {{ form.text }}
+            <br>
+            <br>
+            <button class="button" type="submit">Сгенерировать картинку</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
